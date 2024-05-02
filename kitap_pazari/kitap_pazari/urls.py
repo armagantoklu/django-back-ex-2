@@ -20,4 +20,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('kitaplar.api.urls')),
+    path('api-auth/', include('rest_framework.urls')),#admin panelde sag ust tarafta login login logout getirmeke icin
 ]

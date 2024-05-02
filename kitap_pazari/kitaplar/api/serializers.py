@@ -4,6 +4,7 @@ from kitaplar.models import Kitap, Yorum
 
 
 class YorumSerializer(serializers.ModelSerializer):
+    yorum_sahibi = serializers.StringRelatedField(read_only=True)
     class Meta:
         model = Yorum
         # fields = '__all__'

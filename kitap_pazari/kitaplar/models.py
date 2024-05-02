@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
@@ -16,7 +17,8 @@ class Kitap(models.Model):
 
 class Yorum(models.Model):
     kitap = models.ForeignKey(Kitap, on_delete=models.CASCADE, related_name='yorumlar')
-    yorum_sahibi = models.CharField(max_length=255)
+    # yorum_sahibi = models.CharField(max_length=255)
+    yorum_sahibi = models.ForeignKey(User, on_delete=models.CASCADE, related_name='kullanici_yorumlari')
     yorum = models.CharField(max_length=255)
     yaratilma_tarihi = models.DateTimeField(auto_now_add=True)  # 1 defa olcak degismicek
     guncellenme_tarihi = models.DateTimeField(auto_now=True)  # her guncellemede deisecek
